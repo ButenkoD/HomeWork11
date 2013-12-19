@@ -3,9 +3,9 @@ all_posts:
     defaults: { _controller: ButenkoHomeBundle:Default:index }
 
 delete_post:
-    pattern:  /delete/{id}
+    pattern:  /delete/{slug}
     defaults: { _controller: ButenkoHomeBundle:Default:delete }
 
 show_post:
-    pattern: /show/{id}
+    pattern: /show/{slug}
     defaults: { _controller: ButenkoHomeBundle:Default:show }

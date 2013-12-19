@@ -67,6 +67,12 @@ class Post
     private $updated;
 
     /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(type="string", length=250, unique=true)
+     */
+    private $slug;
+
+    /**
      * Get id
      *
      * @return integer
@@ -144,4 +150,53 @@ class Post
     {
         return $this->body;
     }
+
+    /**
+     * @param \Butenko\HomeBundle\Entity\datetime $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return \Butenko\HomeBundle\Entity\datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param \Butenko\HomeBundle\Entity\datetime $updated
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
+    /**
+     * @return \Butenko\HomeBundle\Entity\datetime
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
 }

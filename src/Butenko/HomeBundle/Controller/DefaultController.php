@@ -53,22 +53,22 @@ class DefaultController extends Controller
         ));
     }
 
-    public function deleteAction($id)
+    public function deleteAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
         $post = $em->getRepository('ButenkoHomeBundle:Post')
-            ->findOneBy(array('id' => $id));
+            ->findOneBy(array('slug' => $slug));
         $em->remove($post);
         $em->flush();
 
         return $this->redirect($this->generateUrl('all_posts'));
     }
 
-    public function showAction($id)
+    public function showAction($slug)
     {
         $post = $this->getDoctrine()
             ->getRepository('ButenkoHomeBundle:Post')
-            ->findOneBy(array('id' => $id));
+            ->findOneBy(array('slug' => $slug));
 
         return $this->render('ButenkoHomeBundle:Default:show.html.twig', array('post' => $post));
     }
