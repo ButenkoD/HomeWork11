@@ -20,7 +20,9 @@
             </div>
             <div class="panel-body">
                 <p>{{ post.getName() }}</p>
-                <p>{{ post.getBody | slice(0,100) }}</p>
+                {#<p>{{ post.getBody | slice(0,100) }}</p>#}
+                <p>{{ post.getBody | post_limiter(100) }}
+                {{ dot_dot_dot(path('show_post', {'slug': post.getSlug()}))|raw }}</p>
             </div>
         </div>
 

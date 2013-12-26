@@ -7,11 +7,16 @@
     <parameters>
         <parameter key="posts_per_page">10</parameter>
         <parameter key="my_listener.class">Butenko\HomeBundle\EventListener\MyListener</parameter>
+        <parameter key="my_twig_extension.class">Butenko\HomeBundle\Twig\HomeExtension</parameter>
     </parameters>
 
     <services>
         <service id="my_listener" class="%my_listener.class%">
             <tag name="kernel.event_listener" event="post.added" method="onPostAdded" priority="0"/>
+        </service>
+
+        <service id="butenko.twig.home_extension" class="%my_twig_extension.class%">
+            <tag name="twig.extension"/>
         </service>
     </services>
 
